@@ -38,7 +38,29 @@ def buscar_ID():
     else:
         print(dadosDoEstoque[posicaoProcurada])
     travar_menu()
-
+def alterar_quantidade():
+    id_procurado = int(input("\nDigite o ID do produto que deseja alterar a quantidade: "))
+    
+    for i in range(len(dadosDoEstoque)):
+        if dadosDoEstoque[i][0] == id_procurado:
+            print(f"\nProduto encontrado: {dadosDoEstoque[i][1]}")
+            print(f"Quantidade atual: {dadosDoEstoque[i][2]}")
+            
+            # Pede a nova quantidade
+            nova_qtd = int(input("Digite a nova quantidade: "))
+            
+            # Atualiza o valor na lista
+            dadosDoEstoque[i][2] = nova_qtd
+            print("\n Quantidade atualizada!")
+            
+            if nova_qtd <= 0:
+                dadosDoEstoque.pop(i)
+                print("O produto foi removido do estoque!")
+            break
+    travar_menu()
+    
+def travar_menu():
+    input("\nPressione ENTER para continuar...\n")
 
 ## Menu
 while True: ## Rodar para sempre
