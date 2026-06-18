@@ -7,10 +7,11 @@ novoID = 2
 
 print("------------------SEJA BEM-VINDO AO ESTOQUE DE PEÇAS-------------------")
 
+##Função inicial para cadrastrar uma peça desejada
 def cadrastar_Produto():
     global dadosDoEstoque
     global novoID 
-    novoID = novoID + 1
+    novoID = novoID + 1 #Aumenta automaticamente o ID a cada peça adicionada
     nome = input("\nDigite o nome do Produto: ")
     qntda = int(input("\nQual a quantidade do produto: "))
     localizacao = input("\nQual a localização da peça: ")
@@ -20,46 +21,49 @@ def cadrastar_Produto():
     print("\nProduto cadastrado com sucesso!")
     travar_menu()
 
+#Lista o estoque
 def listar_Estoque():
     global dadosDoEstoque
     print("\n________________ESTOQUE DE PEÇAS________________\n")
     print(dadosDoEstoque)
     travar_menu()
 
+#Função para procurar uma peça através do ID
 def buscar_ID():
     posicaoProcurada = -1
     id_procurado = int(input("\nDigite o ID do produto que deseja buscar: "))
     for i in range(len(dadosDoEstoque)):
         if(dadosDoEstoque[i][0] == id_procurado):
-            posicaoProcurada = i
+            posicaoProcurada = i #Fala que o produto esta na linha 
 
-    if posicaoProcurada == -1:
+    if posicaoProcurada == -1: #Caso a posição seja errada, o sistema avisa
         print("Não existe esse ID")
     else:
         print(dadosDoEstoque[posicaoProcurada])
     travar_menu()
+
 def alterar_quantidade():
     id_procurado = int(input("\nDigite o ID do produto que deseja alterar a quantidade: "))
     
     for i in range(len(dadosDoEstoque)):
-        if dadosDoEstoque[i][0] == id_procurado:
-            print(f"\nProduto encontrado: {dadosDoEstoque[i][1]}")
+        if dadosDoEstoque[i][0] == id_procurado: #[i] é a peça e [0] é a posição
+            print(f"\nProduto encontrado: {dadosDoEstoque[i][1]}") 
             print(f"Quantidade atual: {dadosDoEstoque[i][2]}")
             
             # Pede a nova quantidade
-            nova_qtd = int(input("Digite a nova quantidade: "))
+            nova_qtd = int(input("Digite a nova quantidade: ")) #Adiciona a nova quantidade
             
             # Atualiza o valor na lista
-            dadosDoEstoque[i][2] = nova_qtd
+            dadosDoEstoque[i][2] = nova_qtd #muda a coluna 2 do produto desejado
             print("\n Quantidade atualizada!")
             
-            if nova_qtd <= 0:
+            if nova_qtd <= 0: # Se a qauntidade for qualquer número menor ou igual a 0, o sistema automaticamente exclui da lista, mostrando que não tem mais no estoque
                 dadosDoEstoque.pop(i)
                 print("O produto foi removido do estoque!")
             break
     travar_menu()
     
-def travar_menu():
+def travar_menu(): #Função para travar o menu e ele não continuar aparecendo como um loop 
     input("\nPressione ENTER para continuar...\n")
 
 ## Menu
@@ -77,7 +81,7 @@ while True: ## Rodar para sempre
         alterar_quantidade()
     elif (opcao == "5"):
         travar_menu()
-
+    break
 
 
     
