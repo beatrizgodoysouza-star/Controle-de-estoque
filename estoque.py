@@ -5,6 +5,20 @@ dadosDoEstoque = [
 ] ## ID, Nome, quantidade, localização
 novoID = 2
 
+print("------------------SEJA BEM-VINDO AO ESTOQUE DE PEÇAS-------------------")
+
+def cadrastar_Produto():
+    global dadosDoEstoque
+    global novoID 
+    novoID = novoID + 1
+    nome = input("\nDigite o nome do Produto: ")
+    qntda = int(input("\nQual a quantidade do produto: "))
+    localizacao = input("\nQual a localização da peça: ")
+
+    produto = [novoID, nome, qntda, localizacao]
+    dadosDoEstoque.append(produto)
+    print("\nProduto cadastrado com sucesso!")
+    travar_menu()
 
    
 ## Menu
