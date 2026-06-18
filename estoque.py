@@ -26,7 +26,20 @@ def listar_Estoque():
     print(dadosDoEstoque)
     travar_menu()
 
-   
+def buscar_ID():
+    posicaoProcurada = -1
+    id_procurado = int(input("\nDigite o ID do produto que deseja buscar: "))
+    for i in range(len(dadosDoEstoque)):
+        if(dadosDoEstoque[i][0] == id_procurado):
+            posicaoProcurada = i
+
+    if posicaoProcurada == -1:
+        print("Não existe esse ID")
+    else:
+        print(dadosDoEstoque[posicaoProcurada])
+    travar_menu()
+
+
 ## Menu
 while True: ## Rodar para sempre
     print("\nBem vindo ao estoque de peças, escolha uma opção:")
