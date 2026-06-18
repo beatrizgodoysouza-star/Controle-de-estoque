@@ -20,6 +20,12 @@ def cadrastar_Produto():
     print("\nProduto cadastrado com sucesso!")
     travar_menu()
 
+def listar_Estoque():
+    global dadosDoEstoque
+    print("\n________________ESTOQUE DE PEÇAS________________\n")
+    print(dadosDoEstoque)
+    travar_menu()
+
    
 ## Menu
 while True: ## Rodar para sempre
