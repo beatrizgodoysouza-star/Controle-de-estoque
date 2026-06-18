@@ -1,3 +1,4 @@
+## Feito no grupo com: Beatriz Godoy, Yasmin Zanata, Helena e Yasmin Luciana
 dadosDoEstoque = [
     [0, "Martelo", 23, 34],
     [1, "Rosca", 21, 89],
