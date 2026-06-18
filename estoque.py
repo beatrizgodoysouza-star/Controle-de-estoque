@@ -75,6 +75,8 @@ while True: ## Rodar para sempre
          buscar_ID()
     elif (opcao == "4"):
         alterar_quantidade()
+    elif (opcao == "5"):
+        travar_menu()
 
 
 
